@@ -1,0 +1,10 @@
+services:
+#    arnold_partenaire.example:
+#        class: Arnold\PartenaireBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    arnold_partenaire.admin.partenaire:
+        class: Arnold\PartenaireBundle\Admin\PartenaireAdmin
+        arguments: [~, Arnold\PartenaireBundle\Entity\Partenaire, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Partenaire }
+        public: true

@@ -1,0 +1,7 @@
+arnold_competences_Competences_getallcompetences:
+    path:     /competences/getall
+    defaults: { _controller: ArnoldCompetencesBundle:Competences:getallcompetences }
+
+arnold_competences_Competences_getcompetences:
+    path:     /competences/get/{id}
+    defaults: { _controller: ArnoldCompetencesBundle:Competences:getcompetences }

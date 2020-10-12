@@ -1,0 +1,23 @@
+<div class="row latest-content">
+{% for actu in actus %}
+    <div class="col-sm-4 clo-xs-12 latest">
+        <div class="row m0 latest-image">
+            <a href="{{ path('arnold_actualites_Actualites_get', {'id': actu.id}) }}">
+             {% media actu.image, 'big' with {'style': 'width:370px; height:245px'} %}
+            </a>
+            <div class="latest-info-date"><a href="{{ path('arnold_actualites_Actualites_get', {'id': actu.id}) }}"><h3>{{actu.publishat | date('d')}} <small>{{actu.publishat | date('F')}}</small></h3></a></div>
+        </div>
+        <div class="latest-news-text">
+            <a href="{{ path('arnold_actualites_Actualites_get', {'id': actu.id}) }}">
+                <h4>{{actu.titre}}</h4> 
+            </a>
+            <p>{{actu.presentation}}</p> 
+            <div class="row m0 latest-meta">
+                <a href="{{ path('arnold_actualites_Actualites_get', {'id': actu.id}) }}"></a> <a class="read_more" href="{{ path('arnold_actualites_Actualites_get', {'id': actu.id}) }}"><i class="fa fa-comments"></i> Comments: 
+                {{ render(controller('ArnoldActualitesBundle:Actualites:getactualitescount', {'id': actu.id} )) }}
+                </a>
+            </div>
+        </div>
+    </div>    
+  {% endfor %}          
+</div>

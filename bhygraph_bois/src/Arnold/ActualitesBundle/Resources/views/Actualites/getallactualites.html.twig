@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<section class="row header-breadcrumb">
+    <div class="container">
+        <div class="row m0 page-cover">
+            <h2 class="page-cover-tittle">Actualites</h2>
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Actualites</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<section class="row blog_content">
+    <div class="container">
+        <div class="row sectpad">
+            <div class="blog_section col-lg-8">
+                {% for actu in pager %}
+                <div class="row blog">
+                    <div class="featured_img row m0">
+                        <a href="{{ path('arnold_actualites_Actualites_get', {'id': actu.id}) }}">
+                        {% media actu.image, 'big' with {'style': 'width:770px; height:330px'} %} 
+                        </a>                    
+                    </div>
+                    <div class="post-contents row m0">
+                        <a href="{{ path('arnold_actualites_Actualites_get', {'id': actu.id}) }}" class="post-date">{{actu.publishat | date('d')}}<br/><span>{{actu.publishat | date('F')}}</span></a>
+                        <h4 class="post-title"><a href="{{ path('arnold_actualites_Actualites_get', {'id': actu.id} ) }}">{{actu.titre}} </a></h4>
+                        <ul class="post-meta nav">
+                            {# <li><i class="fa fa-user"></i><a href="#">Admin</a></li> #}
+                            <li><i class="fa fa-comments"></i>Comments:
+                            {{ render(controller('ArnoldActualitesBundle:Actualites:getactualitescount', {'id': actu.id} )) }}
+                            </li>
+                        </ul>
+                        <p>{{ actu.description | raw}}</p>
+                        <a href="{{ path('arnold_actualites_Actualites_get', {'id': actu.id}) }}" class="read-more submit">Lire la suite</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <ul class="pagination">
+                    {% if pageData.current > 1 %}
+                        <li class="active">
+                        <a  href="{{ path('arnold_actualites_Actualites_getallactualites', app.request.query.all|merge({'page': pageData.current - 1})) }}">Previous</a>
+                        </li>
+                    {% endif %}
+                    {% for page in pageData.first..pageData.last %}
+                        {% if pageData.current == page %}
+                            <li class="active">{{ page }}></li>
+                             
+                        {% else %}
+                            <li class="active"><a href='{{ path('arnold_actualites_Actualites_getallactualites', app.request.query.all|merge({'page': page})) }}'>{{ page }}</a></li>
+                             
+                        {% endif %}   
+                      {% endfor %}
+
+                    {% if pageData.current < pageData.last  %}
+                            <li class="next"><a href="{{ path('arnold_actualites_Actualites_getallactualites', app.request.query.all|merge({'page': pageData.current + 1})) }}"><i class="fa fa-angle-double-right"></i></a></li>
+                     {% endif %} 
+
+                    
+                </ul>
+            </div>
+            <div class="sidebar_section col-lg-4">
+                <div class="sidebar row m0">
+                    <div class="row widget widget-search"> 
+                    <div class="row widget widget-popular-posts">
+                        <h4 class="widget-title">popular posts</h4>
+                        <div class="row widget-inner">
+                        {% for actu in pager %}
+                           {% if actu.enabled %}
+                            <div class="media popular-post">
+                                <div class="media-left"><a href="{{ path('arnold_actualites_Actualites_get', {'id': actu.id}) }}">
+                                    {% media actu.image, 'big' with {'style': 'width:120px; height:92px'} %}
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                {{ render(controller('ArnoldActualitesBundle:Actualites:getactualitescount', {'id': actu.id} )) }}
+                                    <h5 class="post-title" ><a href="{{ path('arnold_actualites_Actualites_get', {'id': actu.id}) }}">{{actu.titre}}</a></h5>
+                                    <div class="text-widegt widget-inner">
+                                            <p style = "overflow: hidden; text-align: left;">{{actu.presentation}}</p>
+                                        </div>
+                                    
+                                    <h5 class="post-date"><a href="{{ path('arnold_actualites_Actualites_get', {'id': actu.id}) }}">{{actu.publishat | date('d')}} {{actu.publishat | date('F')}}</a></h5>                            
+                                </div>
+                            </div>
+                        </div> 
+                        {% endif %}
+                        {% endfor %}
+                    </div> 
+                    {# <div class="row widget text-widget-post">
+                        <h4 class="widget-title">Text Widget</h4>
+                        <div class="text-widegt widget-inner">
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant ium dolore que laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi arc</p>
+                        </div>
+                    </div> #}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

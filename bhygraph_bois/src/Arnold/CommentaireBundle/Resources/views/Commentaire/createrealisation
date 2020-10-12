@@ -1,0 +1,7 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ArnoldCommentaireBundle:Commentaire:create{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Commentaire:create page</h1>
+{% endblock %}

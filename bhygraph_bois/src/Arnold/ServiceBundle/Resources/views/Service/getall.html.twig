@@ -1,0 +1,281 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<style type="text/css">
+
+        .itemm label{
+            display: block;
+            padding: 10px;
+            background-color: #bc945e;
+            font-size: 20px;
+            cursor: pointer;
+            color: #111111;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #e8e8e8;
+        }
+        .itemm label:hover{
+            background-color: #1565C0;
+            color: #ffffff;
+        }
+        .itemm ul{
+            width: 100%;
+            list-style: none;
+            overflow: hidden;
+            max-height: 0;
+            transition: all .4s linear;
+        }
+        .itemm input {
+            display: none;
+        }
+        .itemm ul li a{
+            width: 200%;
+            height: 5;
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+            background-color: #fafafa;
+            color: #333;
+            border-bottom: solid 2px #aaa;
+        }
+        .itemm ul li a:hover{
+            background-color: #9cf;
+            width: 200%;
+            margin-bottom: 10px;
+            border: 1px solid #e8e8e8;
+        }
+        .itemm input:checked ~ ul{
+            height: auto;
+            max-height: 200px;
+            transform: all;
+        }
+
+    </style>
+
+
+     <style>
+    #scrollUp img{
+        width: 40px;
+     }
+#scrollUp
+{
+position: fixed;
+top: 480px;
+width: 40px;
+bottom : 10px;
+right: -100px;
+opacity: 0.5;
+}
+</style>
+ 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+ 
+<script>
+jQuery(function(){
+$(function () {
+$(window).scroll(function () {
+if ($(this).scrollTop() > 200 ) { 
+$('#scrollUp').css('right','10px');
+} else { 
+$('#scrollUp').removeAttr( 'style' );
+}
+ 
+});
+});
+});
+</script>
+
+<section class="row header-breadcrumb">
+    <div class="container">
+            <div class="row m0 page-cover">
+                <h2 class="page-cover-tittle">Nos services</h2>
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Nos services</li>
+            </ol>
+            </div>
+        </div>
+</section>
+
+<!--services-1-->
+{# <section class="row sectpad services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 ">
+                <div class="itemm">
+                <input type="checkbox"  id="check1">
+                        <label for="check1" class="ascenseur">Service 1</label>
+
+                    {{ render(controller('ArnoldServiceBundle:Service:getparents')) }}
+                </div>
+            </div>#}
+{# <section class="row sectpad services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 ">
+                    {{ render(controller('ArnoldServiceBundle:Service:getparents')) }}
+                    
+                </div>
+            <div class="col-md-8 tab_pages"> #}
+                {#{{ render(controller('ArnoldServiceBundle:Service:get')) }}#}
+                {# <div class="tab-content">
+                    {% for serv in service %}
+                        {% if serv == service[0] %}
+                            <div role="tabpanel" class="tab-pane active" id="{{serv.id}}">
+
+                                <div class="row m0 tab_inn_cont_1 ">
+                                    <div class="tab_inn_cont_2 row">
+                                        <div class="cont_left col-sm-8">
+                                            <div class="row m0 section_header color">
+
+                                                <h2>{{serv.nom}}</h2>
+                                            </div>
+                                            <h3>{{serv.nom}}</h3>
+                                            <p style = "overflow: hidden;">{{serv.description}}</p><br>
+                                            <p style = "overflow: hidden;">{{serv.description}}</p>
+                                        </div>
+                                        <div class="cont_right col-sm-4"> #}
+                                            {# <img src="{{ asset('assets/images/services_2/1.jpg') }}" alt=""> #}
+                                            {# {% media serv.image, 'big' with {'style': 'width:270px; height:205px'} %} #}
+                                            {# <img src="{{ asset('assets/images/services_2/2.jpg') }}" alt="">  #}
+                                            {# {% media serv.image1, 'big' with {'style': 'width:270px; height:205px'} %} #}
+                                        {# </div>
+                                    </div>  #}
+                                    {# <img src="{{ asset('assets/images/services_2/3.jpg') }}" alt="">  #}
+                                    {# {% media serv.image2, 'big' with {'style': 'width:800px; height:260px'} %} #}
+                                    {# <h3>{{serv.nom}}</h3>
+                                    <p style = "overflow: hidden;">{{serv.description}}</p><br>
+                                </div>
+
+                            </div>
+                        {% else %}
+
+                            <div role="tabpanel" class="tab-pane" id="{{serv.id}}">
+
+                                <div class="row m0 tab_inn_cont_1 ">
+                                    <div class="tab_inn_cont_2 row">
+                                        <div class="cont_left col-sm-8">
+                                            <div class="row m0 section_header color">
+                                            <h2>{{serv.nom}}</h2>
+                                            </div>
+                                            <h3>{{serv.nom}}</h3>
+                                            <p style = "overflow: hidden;">{{serv.description}}</p><br>
+                                        </div>
+                                        <div class="cont_right col-sm-4"> #}
+                                            {# <img src="{{ asset('assets/images/services_2/1.jpg') }}" alt=""> #}
+                                            {# {% media serv.image, 'big' with {'style': 'width:270px; height:205px'} %} #}
+                                            {# <img src="{{ asset('assets/images/services_2/2.jpg') }}" alt="">  #}
+                                            {# {% media serv.image1, 'big' with {'style': 'width:270px; height:205px'} %} #}
+                                        {# </div>
+                                    </div>  #}
+                                    {# <img src="{{ asset('assets/images/services_2/3.jpg') }}" alt="">  #}
+                                    {# {% media serv.image2, 'big' with {'style': 'width:800px; height:260px'} %}
+                                    <h3>{{serv.nom}}</h3>
+                                    <p style = "overflow: hidden;">{{serv.description}}</p><br>
+
+
+                                </div>
+
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>  
+</section> #}
+
+<section class="row sectpad services">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 sidebar">
+                <ul class="nav nav-tabs" role="tablist">
+                <center><h3>Nos Services</h3></center>
+                {% for serv in service %}
+                    <li role="presentation">
+                        <a href="#{{serv.id}}" aria-controls="{{serv.id}}" role="tab" data-toggle="tab">
+                            {{serv.nom}}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul> 
+                {# <div class="row m0 downloads">
+                <h4>DOWNLOADS</h4>
+                    {{ render(controller('BriceMesMenusBundle:Documentation:getall' )) }}
+                </div> #}
+            </div>
+            <div class="col-sm-9 tab_pages">
+                <div class="tab-content">
+            {% for serv in service %} 
+                {% if serv == service[0] %}
+                    <div role="tabpanel" class="tab-pane active" id="{{serv.id}}">
+                    
+                        <div class="row m0 tab_inn_cont_1 ">
+                            <div class="tab_inn_cont_2 row">
+                                <div class="cont_left col-sm-8">
+                                    <div class="row m0 section_header color">
+                                    
+                                        <h2>{{serv.nom}}</h2> 
+                                    </div>
+                                    <h3>{{serv.nom}}</h3>
+                                    <p style = "overflow: hidden;">{{serv.description}}</p><br>
+                                    {# <p style = "overflow: hidden;">{{serv.contenu}}</p>  #}
+                                </div>
+                                <div class="cont_right col-sm-4">
+                                    {# <img src="{{ asset('assets/images/services_2/1.jpg') }}" alt=""> #}
+                                    {% media serv.image, 'big' with {'style': 'width:270px; height:205px'} %}                                
+                                    {# <img src="{{ asset('assets/images/services_2/2.jpg') }}" alt="">  #}
+                                    {% media serv.image1, 'big' with {'style': 'width:270px; height:205px'} %}
+                                </div>
+                            </div>
+                             {# <img src="{{ asset('assets/images/services_2/3.jpg') }}" alt="">  #}
+                            {% media serv.image2, 'big' with {'style': 'width:800px; height:260px'} %}                                
+                            <h3>{{serv.nom}}</h3>
+                            <p style = "overflow: hidden;">{{serv.description}}</p><br>
+
+                            {# <p style = "overflow: hidden;">{{serv.contenu}}</p> #}
+                            
+                        </div>
+                        
+                    </div> 
+                    {% else %}
+
+                        <div role="tabpanel" class="tab-pane" id="{{serv.id}}">
+                    
+                        <div class="row m0 tab_inn_cont_1 ">
+                            <div class="tab_inn_cont_2 row">
+                                <div class="cont_left col-sm-8">
+                                    <div class="row m0 section_header color">
+                                    
+                                        <h2>{{serv.nom}}</h2> 
+                                    </div>
+                                    <h3>{{serv.nom}}</h3>
+                                    <p style = "overflow: hidden;">{{serv.description}}</p><br>
+                                    {# <p style = "overflow: hidden;">{{serv.contenu}}</p>  #}
+                                </div>
+                                <div class="cont_right col-sm-4">
+                                    {# <img src="{{ asset('assets/images/services_2/1.jpg') }}" alt=""> #}
+                                    {% media serv.image, 'big' with {'style': 'width:270px; height:205px'} %}                                
+                                    {# <img src="{{ asset('assets/images/services_2/2.jpg') }}" alt="">  #}
+                                    {% media serv.image1, 'big' with {'style': 'width:270px; height:205px'} %}
+                                </div>
+                            </div>
+                             {# <img src="{{ asset('assets/images/services_2/3.jpg') }}" alt="">  #}
+                            {% media serv.image2, 'big' with {'style': 'width:800px; height:260px'} %}                                
+                            <h3>{{serv.nom}}</h3>
+                            <p style = "overflow: hidden;">{{serv.description}}</p><br>
+
+                            {# <p style = "overflow: hidden;">{{serv.contenu}}</p> #}
+                            
+                        </div>
+                        
+                    </div> 
+
+                    {% endif %}
+                    {% endfor %}
+</section>
+
+
+
+{% endblock %}

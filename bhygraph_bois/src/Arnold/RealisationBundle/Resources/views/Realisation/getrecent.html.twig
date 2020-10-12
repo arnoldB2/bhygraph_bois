@@ -1,0 +1,21 @@
+<section class="row latest_projects sectpad projects-1">
+    <div class="container">
+        <div class="row m0 section_header">
+            <h2>Quelques realisations</h2>
+        </div>
+        <div class="row m0 filter_row">
+            <ul class="nav project_filter" id="project_filter2">
+                
+                <li class="active" data-filter="*">tous</li>
+                {{ render(controller('BriceMesMenusBundle:Categorie:gethome' )) }}
+            </ul>
+        </div>
+        <div class="projects2 popup-gallery" id="projects" >  
+            <div class="grid-sizer"></div>
+
+            {% for categ in Categs %} 
+                {{ render(controller('ArnoldRealisationBundle:Realisation:getrecentcategorie', {'id': categ.id, 'limit': 3 } )) }}
+            {% endfor  %}
+        </div>
+    </div>
+</section>

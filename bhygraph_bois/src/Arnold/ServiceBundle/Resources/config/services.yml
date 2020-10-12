@@ -1,0 +1,10 @@
+services:
+#    arnold_service.example:
+#        class: Arnold\ServiceBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    arnold_service.admin.service:
+        class: Arnold\ServiceBundle\Admin\ServiceAdmin
+        arguments: [~, Arnold\ServiceBundle\Entity\Service, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Service }
+        public: true

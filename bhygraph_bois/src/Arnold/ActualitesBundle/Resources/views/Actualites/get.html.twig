@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!--breadcrumb-->
+<section class="row header-breadcrumb">
+    <div class="container">
+        <div class="row m0 page-cover">
+            <h2 class="page-cover-tittle">details de l'actualites</h2>
+            <ol class="breadcrumb">
+                <li><a href="index-2.html">Home</a></li>
+                <li class="active">details de l'actualites</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<!--blog-details-->
+<section class="row blog_content">
+    <div class="container">
+        <div class="row sectpad">
+            <div class="blog_section col-lg-8">
+            
+                <div class="row blog blog-details">
+                    <div class="featured_img row m0">
+                        {# <img src="images/blogs/1.jpg" alt="" class="img-responsive"> #}
+                        {% media actu.image, 'big' with {'style': 'width:770px; height:330px'} %}                     
+                    </div>
+                    <div class="post-contents row m0">
+                        <a href="blog-details.html" class="post-date">{{actu.publishat | date('d')}}<br/><span>{{actu.publishat | date('F')}}</span></a>
+                        <h4 class="post-title"><a href="blog-details.html">{{actu.titre}}</a></h4>
+                        <p>{{ actu.description | raw}}</p>
+                        {# <ul class="post-meta nav">
+                            <li><i class="fa fa-user"></i>By: <a href="#">Admin</a></li>
+                            <li><i class="fa fa-comments"></i>Comments:
+                            {{ render(controller('ArnoldActualitesBundle:Actualites:getallactualites', {'id': actu.id} )) }}
+                            </li>
+                        </ul> #}
+                        <!-- <blockquote>
+                            <p>Ut enim ad minima veniam, quis nostrum exercitatio nem ullam corporis suscipit labori osam, nisi ut aliqu id ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+                            <footer><a href="#">Michale John</a></footer>
+                        </blockquote> -->
+                    </div>
+                </div> <!--Blog-->
+                {# <div class="row m0 posts-social">
+                    <div class="post-count">Share</div>
+                    <ul class="nav social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div> #} 
+                
+                {# <div class="row about-post-author">
+                    <div class="media author-bio">
+                        <div class="media-left">
+                            <a href="#"><img src="images/blogs/admin.jpg" alt="" class="img-responsive"></a>
+                        </div>
+                        <div class="media-body media-middle">
+                            <h4><a href="#">administrator</a></h4>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore mque laudantium, totam rem ape riam, eaque ipsa quae ab illo invent ore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
+                            <footer><center><a href="#">feb 02 2016</a></center></footer>
+                        </div>
+                    </div>
+                </div> #}
+                {{ render(controller('ArnoldCommentaireBundle:Commentaire:getallnews', {'id': actu.id} )) }}
+<!--                    contact-->
+                {{ render(controller('ArnoldCommentaireBundle:Commentaire:createActualites', {'id': actu.id} )) }}
+            </div>
+            <div class="sidebar_section col-lg-4">
+                <div class="sidebar row m0 ">
+                    <div class="row widget widget-popular-posts">
+                        <h4 class="widget-title">popular posts</h4> 
+                        <div class="row widget-inner">
+                            <div class="media popular-post">
+                                <div class="media-left"><a href="single.html">
+                                  {% media actu.image, 'big' with {'style': 'width:120px; height:92px'} %}
+                                </a></div>
+                                <div class="media-body">
+                                    <h5 class="post-title"><a href="single.html">Neque porro quisua mest qui dolorem.</a></h5>
+                                    <h5 class="post-date"><a href="#">20 june</a></h5>                            
+                                </div>
+                            {# </div> <!--Popular Post-->
+                            <div class="media popular-post">
+                                <div class="media-left"><a href="single.html"><img src="images/blogs/post2.jpg" alt=""></a></div>
+                                <div class="media-body">
+                                    <h5 class="post-title"><a href="single.html">Neque porro quisua mest qui dolorem.</a></h5>
+                                    <h5 class="post-date"><a href="#">20 june</a></h5>                            
+                                </div>
+                            </div> <!--Popular Post-->
+                            <div class="media popular-post">
+                                <div class="media-left"><a href="single.html"><img src="images/blogs/post3.jpg" alt=""></a></div>
+                                <div class="media-body">
+                                    <h5 class="post-title"><a href="single.html">Neque porro quisua mest qui dolorem.</a></h5>
+                                    <h5 class="post-date"><a href="#">20 june</a></h5>                            
+                                </div>
+                            </div> <!--Popular Post-->  #}
+                        </div>
+                    </div> <!--Popular Posts-->
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>
+{% endblock %}

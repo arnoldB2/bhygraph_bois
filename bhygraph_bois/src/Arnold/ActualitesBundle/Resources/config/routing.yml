@@ -1,0 +1,19 @@
+arnold_actualites_Actualites_getrecentactualites:
+    path:     /Actualites/recent/{limit}
+    defaults: { _controller: ArnoldActualitesBundle:Actualites:getrecentactualites }
+
+arnold_actualites_Actualites_getactualiteshome:
+    path:     /Actualites/home/{limit}
+    defaults: { _controller: ArnoldActualitesBundle:Actualites:getactualiteshome }
+
+arnold_actualites_Actualites_getactualitescount:
+    path:     /Actualites/count/{id}
+    defaults: { _controller: ArnoldActualitesBundle:Actualites:getactualitescount }
+
+arnold_actualites_Actualites_getallactualites:
+    path:     /Actualites/getall
+    defaults: { _controller: ArnoldActualitesBundle:Actualites:getallactualites }
+
+arnold_actualites_Actualites_get:
+    path:     /Actualites/get/{id}  
+    defaults: { _controller: ArnoldActualitesBundle:Actualites:get } 

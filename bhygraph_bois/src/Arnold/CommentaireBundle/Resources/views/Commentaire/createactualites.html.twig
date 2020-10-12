@@ -1,0 +1,10 @@
+<form action="{{ path('arnold_commentaire_Commentaire_Actualites_create', {'id': id}) }}" method="post" class="comment_form row m0">
+    <h3 class="leave-comment-title">Leave a Comment</h3>
+    {# <input type="text" name="nom" class="form-control" placeholder="votre nom"> #}
+    {{ form_widget(form.auteur, {'attr':{'class': 'form-control', 'placeholder': 'votre nom'}})}}
+    {# <textarea class="form-control" placeholder="votre commentaire"></textarea> #}
+    {{ form_widget(form.message, {'attr':{'class': 'form-control message', 'placeholder': 'votre commentaire'}})}}
+    {{form_rest(form)}}
+    {{form_widget(form)}}
+    <button type="submit" class="btn btn-primary submit">submit</button> 
+</form>  

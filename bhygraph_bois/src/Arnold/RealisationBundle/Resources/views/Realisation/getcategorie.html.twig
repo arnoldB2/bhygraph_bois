@@ -1,0 +1,10 @@
+{% for realisation in realisations %}
+    
+    <li role="presentation" >
+        <a href="#{{realisation.id}}" aria-controls="{{realisation.id}}" role="tab" data-toggle="tab">
+           {{realisation.nom}}
+        </a>
+    </li>
+
+    
+ {% endfor %}

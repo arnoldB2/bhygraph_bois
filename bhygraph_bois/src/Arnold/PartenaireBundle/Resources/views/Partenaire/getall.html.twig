@@ -1,0 +1,9 @@
+{% for part in partenaire %}
+<div class="col-md-2 col-sm-3 col-xs-6 client">
+    <div class="row m0 inner-logo">
+        <a href="#">
+           {% media part.image, 'big' with {'style': 'width:116px; height:105px'} %}
+        </a>
+    </div>
+</div>
+{% endfor %}

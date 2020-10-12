@@ -1,0 +1,19 @@
+arnold_realisation_Realisation_get:
+    path:     /Realisation/get/{id}
+    defaults: { _controller: ArnoldRealisationBundle:Realisation:get } 
+
+arnold_realisation_Realisation_getrecent:
+    path:     /Realisation/getrecent
+    defaults: { _controller: ArnoldRealisationBundle:Realisation:getrecent }
+
+arnold_realisation_Realisation_getall:
+    path:     /Realisation/getall
+    defaults: { _controller: ArnoldRealisationBundle:Realisation:getall }
+
+arnold_realisation_Realisation_getcategorie:
+    path:     /Realisation/getcategorie/{id}
+    defaults: { _controller: ArnoldRealisationBundle:Realisation:getcategorie }
+
+arnold_realisation_Realisation_getrecentcategorie:
+    path:     /Realisation/getrecentcategorie/{id}/{limit}
+    defaults: { _controller: ArnoldRealisationBundle:Realisation:getrecentcategorie }  

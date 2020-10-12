@@ -1,0 +1,19 @@
+arnold_service_service_get:
+    path:     /Service/get
+    defaults: { _controller: ArnoldServiceBundle:Service:get }
+
+arnold_service_service_getrecent:
+    path:     /Service/getrecent/{limit}
+    defaults: { _controller: ArnoldServiceBundle:Service:getrecent }
+
+arnold_service_service_getall:
+    path:     /Service/getall
+    defaults: { _controller: ArnoldServiceBundle:Service:getall }
+
+arnold_service_service_getparents:
+    path:     /Service/getparents
+    defaults: { _controller: ArnoldServiceBundle:Service:getparents }
+
+arnold_service_service_getchildren:
+    path:     /Service/getchildren/{id}
+    defaults: { _controller: ArnoldServiceBundle:Service:getchildren }

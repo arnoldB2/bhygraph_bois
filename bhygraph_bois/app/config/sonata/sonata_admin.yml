@@ -1,0 +1,151 @@
+sonata_admin:
+    # default value, change it to sonata.admin.security.handler.acl to use ACL
+    security:
+        handler: sonata.admin.security.handler.acl
+        # acl security information
+        information:
+            GUEST:    [VIEW, LIST]
+            STAFF:    [EDIT, LIST, CREATE]
+            EDITOR:   [OPERATOR, EXPORT]
+            ADMIN:    [MASTER]
+        # permissions not related to an object instance and also to be available when objects do not exist
+        # the DELETE admin permission means the user is allowed to batch delete objects
+        admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
+        # permission related to the objects
+        object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]
+
+    title: 'BHYGRAPHE BOIS'
+    title_logo: bundles/sonataadmin/logo_title.png
+    options:
+        html5_validate: false # does not use html5 validation
+        pager_links: 5        # pager max links to display
+        use_icheck: false
+
+    templates:
+        # default global templates
+        # the layout template include javascript/stylesheet to the formatter bundle,
+        # if you don't need it use the default one: SonataAdminBundle::standard_layout.html.twig
+        layout:  SonataAdminBundle::standard_layout.html.twig
+        ajax:    SonataAdminBundle::ajax_layout.html.twig
+
+        # default value if done set, actions templates, should extends a global templates
+        list:    SonataAdminBundle:CRUD:list.html.twig
+        show:    SonataAdminBundle:CRUD:show.html.twig
+        edit:    SonataAdminBundle:CRUD:edit.html.twig
+
+        # determination des block
+    dashboard:
+        blocks:
+
+            -
+                class:  col-lg-3 col-xs-3
+                position: top
+                type:   sonata.admin.block.stats
+                settings:
+                    code: arnold_service.admin.service
+                    icon: fa-diamond
+                    text: services
+                    color:  bg-blue
+            
+            -
+                class:  col-lg-3 col-xs-3
+                position: top
+                type:   sonata.admin.block.stats
+                settings:
+                    code: arnold_actualites.admin.actualites
+                    icon: fa-globe
+                    text: actualites
+                    color:  bg-blue
+
+            -
+                class:  col-lg-3 col-xs-3
+                position: top
+                type:   sonata.admin.block.stats
+                settings:
+                    code: arnold_realisation.admin.realisation
+                    icon: fa-cubes
+                    text: Realisation
+                    color:  bg-blue
+
+            -
+                class:  col-lg-3 col-xs-3
+                position: top
+                type:   sonata.admin.block.stats
+                settings:
+                    code: arnold_commentaire.admin.commentaire
+                    icon: fa-comments-o
+                    text: Commentaire
+                    color:  bg-blue
+
+        groups:
+            
+            sonata.admin.group.administration:
+                label:           Administration
+                label_catalogue: ApplicationUserBundle
+                icon:            '<i class="fa fa-cogs"></i>'
+                items:
+                    - sonata.user.admin.user
+                    - sonata.user.admin.group
+            
+            sonata.admin.group.media:
+                label:           Media
+                label_catalogue: ApplicationMediaBundle
+                icon:            '<i class="fa fa-picture-o"></i>'
+                items:
+                    - sonata.media.admin.media
+                    - sonata.media.admin.gallery
+
+            sonata.admin.group.nguimtsop:
+                label: MENU
+                label_catalogue: BriceMesMenusBundle
+                icon: '<i class="fa  fa-align-justify"></i>'
+                items: 
+                    - brice_mes_menus.admin.devis
+                    - brice_mes_menus.admin.categorie
+                    - brice_mes_menus.admin.apropos
+                    - brice_mes_menus.admin.documentation
+                    - brice_mes_menus.admin.contacts
+            
+            sonata.admin.group.service:
+                label: Service
+                label_catalogue: ArnoldServiceBundle
+                icon: '<i class="fa fa-diamond"></i>'
+                items: 
+                    - arnold_service.admin.service
+
+            sonata.admin.group.actualites:
+                label: actualites
+                label_catalogue: ArnoldActualitesBundle
+                icon: '<i class="fa fa-globe"></i>'
+                items: 
+                    - arnold_actualites.admin.actualites
+            
+            sonata.admin.group.competences:
+                label: competences
+                label_catalogue: ArnoldCompetencesBundle
+                icon: '<i class="fa fa-area-chart"></i>'
+                items: 
+                    - arnold_competences.admin.competences
+            
+            sonata.admin.group.realisation:
+                label: realisation
+                label_catalogue: ArnoldRealisationBundle
+                icon: '<i class="fa fa-cubes"></i>'
+                items: 
+                    - arnold_realisation.admin.realisation
+            
+            sonata.admin.group.commentaire:
+                label: commentaire
+                label_catalogue: ArnoldCommentaireBundle
+                icon: '<i class="fa fa-comments-o"></i>'
+                items: 
+                    - arnold_commentaire.admin.commentaire
+            
+            sonata.admin.group.partenaire:
+                label: partenaire
+                label_catalogue: ArnoldPartenaireBundle
+                icon: '<i class="fa fa-comments-o"></i>'
+                items: 
+                    - arnold_partenaire.admin.partenaire
+            
+            

@@ -1,0 +1,23 @@
+
+<div class="widget widget4 widget-form col-sm-6 col-lg-3">
+    <h4 class="widget_title">Devis</h4>
+    <div class="widget-contact-list row m0">
+          {% form_theme form _self %}
+        <form class="submet-form row m0" action="{{ path('brice_mesmenus_Devis_create') }}" method="post">
+            {# <input type="text class="form-control" id="name" placeholder="Nons et prenoms"> #}
+            {{ form_widget(form.nom, {'attr':{'id': 'name', 'class': 'form-control', 'placeholder': 'entrez votre Nom et prenoms'}})}}
+            {# <input type="email" class="form-control" id="email" placeholder="Email"> #}
+            {{ form_widget(form.email, {'attr':{'id': 'email', 'class': 'form-control', 'placeholder': 'entrez votre Email'}})}}
+            {# <input type="text" class="form-control" id="email" placeholder="objet"> #}
+            {{ form_widget(form.objet, {'attr':{'id': 'objet', 'class': 'form-control nom', 'placeholder': 'objet'}})}}
+            {# <input type="text" class="form-control" id="email" placeholder="Services"> #}
+            {{ form_widget(form.Service, {'attr':{'id': 'services', 'class': 'form-control', 'placeholder': 'Services'}})}}
+            {# <textarea class="form-control message" placeholder="Description"></textarea> #}
+            {{ form_widget(form.description, {'attr':{'id': 'description', 'class': 'form-control message', 'placeholder': 'description'}})}}
+            {{form_rest(form)}}
+            {{form_widget(form)}}  
+            <button class="submit" type="submit">Soumettez</button>
+        </form> 
+        
+    </div>
+</div>

@@ -1,0 +1,35 @@
+brice_mesmenus_contacts_create:
+    path:     /contacts/create
+    defaults: { _controller: BriceMesMenusBundle:contacts:create }
+
+brice_mesmenus_Devis_create:
+    path:     /Devis/create
+    defaults: { _controller: BriceMesMenusBundle:Devis:create }
+
+brice_mesmenus_Devis_getall:
+    path:     /Devis/getall
+    defaults: { _controller: BriceMesMenusBundle:Devis:getall }
+
+brice_mesmenus_Apropos_get:
+    path:     /Apropos/get/{id}
+    defaults: { _controller: BriceMesMenusBundle:Apropos:get }
+
+brice_mesmenus_Apropos_getall:
+    path:     /Apropos/getall
+    defaults: { _controller: BriceMesMenusBundle:Apropos:getall }
+
+brice_mesmenus_categorie_gethome:
+    path:     /Categorie/gethome
+    defaults: { _controller: BriceMesMenusBundle:Categorie:gethome }
+
+brice_mesmenus_categorie_getall:
+    path:     /Categorie/getall
+    defaults: { _controller: BriceMesMenusBundle:Categorie:getall }
+
+brice_mesmenus_Documentation_getall:
+    path:     /Documentation/getall
+    defaults: { _controller: BriceMesMenusBundle:Documentation:getall }
+
+brice_mesmenus_Documentation_download: 
+    path:     /Documentation/download
+    defaults: { _controller: BriceMesMenusBundle:Documentation:download }

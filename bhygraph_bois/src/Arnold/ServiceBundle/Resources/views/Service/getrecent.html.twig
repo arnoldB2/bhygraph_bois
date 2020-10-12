@@ -1,0 +1,16 @@
+    <center>
+        <div class="we-do-slider">
+            <div class="we-sliders">
+            {% for serv in service %}
+                <div class="item"><a href="{{ path('arnold_service_service_getall') }}#{{serv.id}}">
+                    <div class="post-image">
+                        {% media serv.image, 'big' with {'style': 'width:270px; height:190px'} %}
+                      </a>
+                    </div>
+                    <a href="{{ path('arnold_service_service_getall') }}"><h4>{{serv.nom}}</h4></a>
+                    <p>{{serv.presentation}}.</p>
+                </div>
+            {% endfor %}  
+            </div>
+        </div>
+    </center> 

@@ -1,0 +1,318 @@
+<?php
+
+namespace Arnold\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Service
+ *
+ * @ORM\Table(name="service")
+ * @ORM\Entity(repositoryClass="Arnold\ServiceBundle\Repository\ServiceRepository")
+ */
+class Service
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255)
+     */
+    private $description;
+
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="presentation", type="string", length=125)
+     */
+    private $presentation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Arnold\ServiceBundle\Entity\Service")
+     */
+    protected $parents;
+
+    /**
+     * @var \Application\Sonata\MediaBundle\Entity\Media
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"}, fetch="LAZY")
+     */
+    protected $image; 
+
+    /**
+     * @var \Application\Sonata\MediaBundle\Entity\Media
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"}, fetch="LAZY")
+     */
+    protected $image1;
+
+    /**
+     * @var \Application\Sonata\MediaBundle\Entity\Media
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"}, fetch="LAZY")
+     */
+    protected $image2;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="enabled", type="boolean")
+     */
+    private $enabled;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdat", type="date")
+     */
+    private $createdat;
+
+    public function __construct()
+    {
+        $this->createdat = new \DateTime();
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Service
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Service
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set presentation
+     *
+     * @param string $presentation
+     *
+     * @return Service
+     */
+    public function setPresentation($presentation)
+    {
+        $this->presentation = $presentation;
+
+        return $this;
+    } 
+
+    /**
+     * Get presentation
+     *
+     * @return string
+     */
+    public function getPresentation()
+    {
+        return $this->presentation;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     *
+     * @return Service
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set createdat
+     *
+     * @param \DateTime $createdat
+     *
+     * @return Service
+     */
+    public function setCreatedat($createdat)
+    {
+        $this->createdat = $createdat;
+
+        return $this;
+    }
+
+    /**
+     * Get createdat
+     *
+     * @return \DateTime
+     */
+    public function getCreatedat()
+    {
+        return $this->createdat;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $image
+     *
+     * @return Service
+     */
+    public function setImage(\Application\Sonata\MediaBundle\Entity\Media $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set image1
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $image1
+     *
+     * @return Service
+     */
+    public function setImage1(\Application\Sonata\MediaBundle\Entity\Media $image1 = null)
+    {
+        $this->image1 = $image1;
+
+        return $this;
+    }
+
+    /**
+     * Get image1
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media
+     */
+    public function getImage1()
+    {
+        return $this->image1;
+    }
+
+    /**
+     * Set image2
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $image2
+     *
+     * @return Service
+     */
+    public function setImage2(\Application\Sonata\MediaBundle\Entity\Media $image2 = null)
+    {
+        $this->image2 = $image2;
+
+        return $this;
+    }
+
+    /**
+     * Get image2
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media
+     */
+    public function getImage2()
+    {
+        return $this->image2;
+    }
+// pour fait les relation entre service et devis(la cles de service migre vers devis cad prendre le nom de service pour l'afficher sur devis)
+    public function __toString()
+    {
+        return (string) $this->nom;
+    }
+
+    /**
+     * Set parents
+     *
+     * @param \Arnold\ServiceBundle\Entity\Service $parents
+     *
+     * @return Service
+     */
+    public function setParents(\Arnold\ServiceBundle\Entity\Service $parents = null)
+    {
+        $this->parents = $parents;
+
+        return $this;
+    }
+
+    /**
+     * Get parents
+     *
+     * @return \Arnold\ServiceBundle\Entity\Service
+     */
+    public function getParents()
+    {
+        return $this->parents;
+    }
+}

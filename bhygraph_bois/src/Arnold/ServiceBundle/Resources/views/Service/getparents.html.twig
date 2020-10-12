@@ -1,0 +1,12 @@
+{% for pare in service %}
+    <div class="itemm">
+        <input type="checkbox"  id="{{pare.id}}">
+            <label for="{{pare.id}}" class="ascenseur">
+                    {{pare.nom}}
+            </label>
+            <ul class="nav nav-tabs" role="tablist">
+                {{ render(controller('ArnoldServiceBundle:Service:getchildren', {'id':pare.id})) }}
+                
+            </ul>
+    </div>
+{% endfor %}

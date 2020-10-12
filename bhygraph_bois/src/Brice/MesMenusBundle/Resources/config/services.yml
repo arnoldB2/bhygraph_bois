@@ -1,0 +1,38 @@
+services:
+#    brice_mes_menus.example:
+#        class: Brice\MesMenusBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    brice_mes_menus.admin.devis:
+        class: Brice\MesMenusBundle\Admin\DevisAdmin
+        arguments: [~, Brice\MesMenusBundle\Entity\Devis, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Devis }
+        public: true
+
+    brice_mes_menus.admin.categorie:
+        class: Brice\MesMenusBundle\Admin\CategorieAdmin
+        arguments: [~, Brice\MesMenusBundle\Entity\Categorie, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Categorie }
+        public: true
+
+    brice_mes_menus.admin.apropos:
+        class: Brice\MesMenusBundle\Admin\AproposAdmin
+        arguments: [~, Brice\MesMenusBundle\Entity\Apropos, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Apropos }
+        public: true
+
+    brice_mes_menus.admin.documentation:
+        class: Brice\MesMenusBundle\Admin\DocumentationAdmin
+        arguments: [~, Brice\MesMenusBundle\Entity\Documentation, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Documentation }
+        public: true
+
+    brice_mes_menus.admin.contacts:
+        class: Brice\MesMenusBundle\Admin\contactsAdmin
+        arguments: [~, Brice\MesMenusBundle\Entity\contacts, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: contacts }
+        public: true

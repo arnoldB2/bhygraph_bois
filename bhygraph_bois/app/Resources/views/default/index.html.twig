@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block body %} 
+
+<section class="bannercontainer row"> 
+    <div class="rev_slider banner row m0" id="rev_slider" data-version="5.0">
+        <ul>
+            <li data-transition="slidehorizontal"  data-delay="10000">
+                <img src="{{ asset('assets/images/slider-img/15.jpg') }}"  alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" >
+                <div class="tp-caption sfr tp-resizeme carpenters-h1" 
+                    data-x="0" data-hoffset="690" 
+                    data-y="255" data-voffset="160" 
+                    data-whitespace="nowrap"
+                    data-start="900" style="color: #fff">
+                    Conception des structures bois 
+
+                </div>
+                <div class="tp-caption sfb tp-resizeme carpenters-h2" 
+                    data-x="0" data-hoffset="690" 
+                    data-y="310" data-voffset="350" 
+                    data-whitespace="nowrap"
+                    data-start="1200">
+                    Fabrication du lamellés collés 
+                </div>
+                <div class="tp-caption sfb tp-resizeme carpenters-p" 
+                    data-x="0" data-hoffset="500" 
+                    data-y="430" data-voffset="470" 
+                    data-whitespace="nowrap"
+                    data-start="1800">                    
+                    Grâce à ses outils de dernières générations BHGRAPH se positionne comme <br> étant le leader des bureaux d’études intervenant dans la conception des <br> structures en bois.
+                </div>
+                <div class="tp-caption sfb tp-resizeme carpenters-b" 
+                    data-x="0" data-hoffset="690" 
+                    data-y="550" data-voffset="555" 
+                    data-whitespace="nowrap"
+                    data-start="2000">                    
+                    <a href="#" class="btn btn-2 submit">En savoir plus</a>
+                </div>
+            </li>
+            
+            <li data-transition="parallaxvertical">
+                <img src="{{ asset('assets/images/slider-img/14.jpg') }}"  alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" >
+                <div class="tp-caption sfr tp-resizeme carpenters-h1" 
+                    data-x="0" data-hoffset="690" 
+                    data-y="255" data-voffset="160" 
+                    data-whitespace="nowrap"
+                    data-start="900" style="color: #0d0d0d">
+                    pour tout type de structure : 
+
+                </div>
+                <div class="tp-caption sfb tp-resizeme carpenters-h2" 
+                    data-x="0" data-hoffset="690" 
+                    data-y="310" data-voffset="350" 
+                    data-whitespace="nowrap"
+                    data-start="1200" style="font-size: 2px" >
+                    •	Charpentes d’églises,<br>
+                    •	Hall industriels,<br>
+                    •	Stades,<br>
+                    •	Gymnases 
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<!--we-do-->
+<section class="row sectpad we-do-section">
+    <div class="container">
+        <div class="row m0 section_header color">
+           <h2> Nos services</h2> 
+        </div>
+        {{ render(controller('ArnoldServiceBundle:Service:getrecent', {'limit': 3} )) }}
+        
+       <!--<strong><p class="arnold">Tous les services</p></strong> --> 
+    </div>
+</section>
+
+{{ render(controller('ArnoldRealisationBundle:Realisation:getrecent' )) }}
+
+<!-- latest-news-area -->
+<section class="row sectpad latest-news-area">
+    <div class="container">
+        <div class="row m0 section_header"> 
+           <h2>Actualites</h2> 
+        </div>
+        {{ render(controller('ArnoldActualitesBundle:Actualites:getactualiteshome', {'limit': 3} )) }}
+         <strong><a href="{{ path('arnold_actualites_Actualites_getallactualites') }}"style="color: #000000"><p class="arnold">Toute les Actualites</p></a></strong>
+    </div>  
+</section>
+
+
+<!-- clients -->
+<section class="row clients">
+    <div class="container">
+        <div class="row m0 section_header">
+            <h2>Partenaires</h2>
+        </div>
+        <div class="row clients-logos">
+            {{ render(controller('ArnoldPartenaireBundle:Partenaire:getall' )) }}
+        </div>
+    </div>
+</section>
+
+<!--great-work-->
+<section class="emergency-contact">
+    <div class="left-side">
+        <div class="content">
+            <h3>BHYGRAPH ENGINEERING SA.</h3>
+            <a href="tel:+018655248503" class="phone"><img src="assets/images/great-work/phone.png" alt="">+237 22036193   +237 22206965</a><br/>
+            <a href="tel:+018655248503" class="email"><img src="assets/images/great-work/email.png" alt="">info@bhygraph.com</a>
+        </div>
+    </div>
+    <div class="right-side">
+        <img src="{{ asset('assets/images/great-work/right-img.jpg') }}" alt="">
+    </div>
+</section>
+
+    
+{% endblock %}
+

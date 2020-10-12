@@ -1,0 +1,8 @@
+{% for apro in Documentation %} 
+<div class="dload">
+    <div class="dlbg">
+        <a href="{{ path('sonata_media_download', {'id': apro.document|sonata_urlsafeid }) }}" onclick="window.open(this.href); return false;">{{apro.nom}}</a>
+        <a href="#"><i class="fa fa-file-pdf-o"></i></a>
+    </div> 
+</div>
+{% endfor %}  

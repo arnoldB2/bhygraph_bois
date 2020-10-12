@@ -1,0 +1,16 @@
+{% for real in realistions %}
+    <div class="col-sm-3 col-xs-6 project {{ real.categorie.id }}">
+        <div class="project-img">
+             {% media real.image, 'big' with {'style': 'width:285px; height:260px'} %}
+            <div class="project-text">
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('arnold_realisation_Realisation_getall') }}#{{real.id}}"><i class="icon icon-Linked"></i></a></li>
+                </ul>
+                <div class="row m0">
+                    <a href="{{ path('arnold_realisation_Realisation_getall') }}#{{real.id}}"><h3>{{real.nom}}</h3></a>
+                    <p>{{real.presentation}}</p> 
+                </div>
+            </div> 
+        </div>
+    </div> 
+{% endfor  %}

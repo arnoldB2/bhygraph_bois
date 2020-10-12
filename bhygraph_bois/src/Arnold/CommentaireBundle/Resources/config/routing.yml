@@ -1,0 +1,23 @@
+arnold_commentaire_Commentaire_getrecentrealisation:
+    path:     /Commentaire/Realisation/getrecent/{id}/{limit}
+    defaults: { _controller: ArnoldCommentaireBundle:Commentaire:getrecentrealisation }
+
+arnold_commentaire_Commentaire_getrecentnews:
+    path:     /Commentaire/Actualites/getrecent/{id}/{limit}
+    defaults: { _controller: ArnoldCommentaireBundle:Commentaire:getrecentnews }
+
+arnold_commentaire_Commentaire_getallrealisation:
+    path:     /Commentaire/Realisation/getall/{id}
+    defaults: { _controller: ArnoldCommentaireBundle:Commentaire:getallrealisation }
+
+arnold_commentaire_Commentaire_getallnews:
+    path:     /Commentaire/Actualites/getall/{id}
+    defaults: { _controller: ArnoldCommentaireBundle:Commentaire:getallnews } 
+
+arnold_commentaire_Commentaire_Realisation_create:
+    path:     /Commentaire/Realisation/create/{id}
+    defaults: { _controller: ArnoldCommentaireBundle:Commentaire:createRealisation }
+
+arnold_commentaire_Commentaire_Actualites_create:
+    path:     /Commentaire/Actualites/create/{id}
+    defaults: { _controller: ArnoldCommentaireBundle:Commentaire:createActualites }

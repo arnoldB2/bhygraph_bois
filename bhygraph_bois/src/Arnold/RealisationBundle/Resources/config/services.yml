@@ -1,0 +1,10 @@
+services:
+#    arnold_realisation.example:
+#        class: Arnold\RealisationBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    arnold_realisation.admin.realisation:
+        class: Arnold\RealisationBundle\Admin\RealisationAdmin
+        arguments: [~, Arnold\RealisationBundle\Entity\Realisation, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Realisation }
+        public: true

@@ -1,0 +1,10 @@
+services:
+#    arnold_actualites.example:
+#        class: Arnold\ActualitesBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    arnold_actualites.admin.actualites:
+        class: Arnold\ActualitesBundle\Admin\ActualitesAdmin
+        arguments: [~, Arnold\ActualitesBundle\Entity\Actualites, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Actualites }
+        public: true

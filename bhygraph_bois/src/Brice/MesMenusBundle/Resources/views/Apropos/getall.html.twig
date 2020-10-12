@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<section class="row header-breadcrumb">
+    <div class="container">
+            <div class="row m0 page-cover">
+                <h2 class="page-cover-tittle">A propos de nous</h2>
+            <ol class="breadcrumb">
+                <li><a href="{{ path('homepage') }}">Home</a></li>
+                <li class="active">A propos de nous</li>
+            </ol>
+            </div>
+        </div> 
+</section> 
+
+<!--services-1-->
+<section class="row sectpad services">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 sidebar">
+                <ul class="nav nav-tabs" role="tablist">
+                {% for apro in apropos %}
+                    <li role="presentation">
+                        <a href="#{{apro.id}}" aria-controls="{{apro.id}}" role="tab" data-toggle="tab">
+                            {{apro.titre}}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul> 
+                <div class="row m0 downloads">
+                <h4>DOWNLOADS</h4>
+                    {{ render(controller('BriceMesMenusBundle:Documentation:getall' )) }}
+                </div>
+            </div>
+            <div class="col-sm-9 tab_pages">
+                <div class="tab-content">
+            {% for apro in apropos %}
+                {% if apro == apropos[0] %}
+                    <div role="tabpanel" class="tab-pane active" id="{{apro.id}}">
+                    
+                        <div class="row m0 tab_inn_cont_1 ">
+                            <div class="tab_inn_cont_2 row">
+                                <div class="cont_left col-sm-8">
+                                    <div class="row m0 section_header color">
+                                    
+                                        <h2>{{apro.titre}}</h2> 
+                                    </div>
+                                    <h3>{{apro.titre1}}</h3>
+                                    <p style = "overflow: hidden;">{{apro.contenu}}</p><br>
+                                    <p style = "overflow: hidden;">{{apro.contenu}}</p> 
+                                </div>
+                                <div class="cont_right col-sm-4">
+                                    {# <img src="{{ asset('assets/images/services_2/1.jpg') }}" alt=""> #}
+                                    {% media apro.image, 'big' with {'style': 'width:490px; height:255px'} %}                                
+                                    {# <img src="{{ asset('assets/images/services_2/2.jpg') }}" alt="">  #}
+                                    {% media apro.image1, 'big' with {'style': 'width:870px; height:205px'} %}
+                                </div>
+                            </div>
+                             {# <img src="{{ asset('assets/images/services_2/3.jpg') }}" alt="">  #}
+                            {% media apro.image2, 'big' with {'style': 'width:800px; height:260px'} %}                                
+                            <h3>{{apro.titre1}}</h3>
+                            <p style = "overflow: hidden;">{{apro.contenu}}</p><br>
+
+                            {# <p style = "overflow: hidden;">{{apro.contenu}}</p> #}
+                            
+                        </div>
+                        
+                    </div> 
+                    {% else %}
+
+                        <div role="tabpanel" class="tab-pane" id="{{apro.id}}">
+                    
+                        <div class="row m0 tab_inn_cont_1 ">
+                            <div class="tab_inn_cont_2 row">
+                                <div class="cont_left col-sm-8">
+                                    <div class="row m0 section_header color">
+                                    
+                                        <h2>{{apro.titre}}</h2> 
+                                    </div>
+                                    <h3>{{apro.titre1}}</h3>
+                                    <p style = "overflow: hidden;">{{apro.contenu}}</p><br>
+                                    <p style = "overflow: hidden;">{{apro.contenu}}</p> 
+                                </div>
+                                <div class="cont_right col-sm-4">
+                                    {# <img src="{{ asset('assets/images/services_2/1.jpg') }}" alt=""> #}
+                                    {% media apro.image, 'big' with {'style': 'width:270px; height:205px'} %}                                
+                                    {# <img src="{{ asset('assets/images/services_2/2.jpg') }}" alt="">  #}
+                                    {% media apro.image1, 'big' with {'style': 'width:270px; height:205px'} %}
+                                </div>
+                            </div>
+                             {# <img src="{{ asset('assets/images/services_2/3.jpg') }}" alt="">  #}
+                            {% media apro.image2, 'big' with {'style': 'width:800px; height:260px'} %}                                
+                            <h3>{{apro.titre1}}</h3>
+                            <p style = "overflow: hidden;">{{apro.contenu}}</p><br>
+
+                            <p style = "overflow: hidden;">{{apro.contenu}}</p>
+                            
+                        </div>
+                        
+                    </div> 
+
+                    {% endif %}
+                    {% endfor %}
+</section>
+
+{% endblock %}

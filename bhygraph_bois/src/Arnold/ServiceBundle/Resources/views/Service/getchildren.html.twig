@@ -1,0 +1,7 @@
+{% for serv in children %}
+    <li role="presentation" >
+        <a href="#{{serv.id}}" aria-controls="{{serv.id}}" role="tab" data-toggle="tab">
+            {{serv.nom}}
+        </a>
+    </li>
+{% endfor %}

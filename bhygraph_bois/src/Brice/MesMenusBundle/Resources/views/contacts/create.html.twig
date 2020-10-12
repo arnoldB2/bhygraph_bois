@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<section class="row header-breadcrumb">
+    <div class="container">
+        <div class="row m0 page-cover">
+            <h2 class="page-cover-tittle">contacts </h2>
+            <ol class="breadcrumb">
+                <li><a href="{{ path('homepage') }}">Home</a></li>
+                <li class="active">contacts </li>
+            </ol>
+        </div>
+    </div>
+</section>  
+
+<section class="row touch">
+    <div class="sectpad touch_bg">
+        <div class="container">
+            <div class="row m0 section_header color">
+                <h2>ENTRER EN CONTACT</h2>
+                <p>Si vous souhaitez en savoir plus sur la façon dont nous pouvons aider votre organisation, veuillez remplir le formulaire ci-dessous. vous pouvez nous appeler à tout moment entre 4 heures du matin. à 2 P. M. GMT</p>
+            </div>
+            
+            <div class="row touch_middle">
+                <div class="col-md-4 open_hours">
+                    <div class="row m0 touch_top">
+                        <ul class="nav">
+                            <li class="item">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <i class="fa fa-map-marker"></i>
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        Wood Workshop, 562, Mallin Street New Youk, NY 100 254
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <i class="fa fa-envelope-o"></i>
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        info@bhygraph.com
+                                    </div>
+                                </div>
+                            </li>
+                            <li  class="item">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <i class="fa fa-phone"></i>
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        + 237 22036193<br>
+                                        + 237 22206965 
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8 input_form">
+                {% form_theme form _self %}
+                    <form action="{{ path('brice_mesmenus_contacts_create') }}" method="post" id="contactForm">
+                        {# <input type="text" class="form-control" id="yourname" name="name" placeholder="First"> #}
+                        {{ form_widget(form.nom, {'attr':{'id': 'name', 'class': 'form-control', 'placeholder': 'entrez votre Nom et prenoms'}})}}
+                        {# <input type="email" class="form-control" id="email" name="youremail" placeholder="Email"> #}
+                        {{ form_widget(form.email, {'attr':{'id': 'email', 'class': 'form-control', 'placeholder': 'entrez votre Email'}})}}
+                        {# <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject"> #}
+                        {{ form_widget(form.objet, {'attr':{'id': 'objet', 'class': 'form-control nom', 'placeholder': 'objet'}})}}
+                        {# <textarea class="form-control" rows="6" id="message" name="message" placeholder="Message"></textarea> #}
+                        {{ form_widget(form.message, {'attr':{'id': 'message', 'class': 'form-control message', 'placeholder': 'message'}})}}
+                        <div class="row m0">
+                        {{form_rest(form)}}
+                        {{form_widget(form)}}
+                            <button type="submit" class="btn btn-default submit">Submit Now</button>
+                        </div>
+                    </form>
+                    <div id="success"><p>Your message sent successfully.</p></div>
+                    <div id="error"><p>Something is wrong. Message cant be sent!</p></div>
+                </div>
+            </div>           
+        </div>
+    </div>
+</section>
+<!--MapBox-->
+<section class="map">
+    <div id="mapBox" class="row m0" data-lat="37.3818288" data-lon="-122.0636325" data-zoom="15"></div>
+</section>
+
+
+{% endblock %}

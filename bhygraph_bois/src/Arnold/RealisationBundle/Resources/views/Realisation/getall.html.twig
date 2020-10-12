@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<style type="text/css">
+
+        .itemm label{
+            display: block;
+            text-transform: uppercase;
+            /*padding: 10px;*/
+            background-color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+            color: #242424;
+            /*letter-spacing: 0.30px;*/
+            width: 100%;
+            /*line-height: 35px;*/
+            margin-bottom: 10px;
+            font-family: "Open Sans", sans-serif;
+            border: 1px solid #e8e8e8;
+            padding-left: 21px;
+        }
+        .itemm label:hover{
+            background-color: #bc945e;
+            color: #ffffff;
+        }
+        .itemm ul{
+            width: 100%;
+            list-style: none;
+            overflow: hidden;
+            max-height: 0;
+            transition: all .4s linear;
+        }
+        .itemm input {
+            display: none;
+        }
+        .itemm ul li a{
+            width: 200%;
+            height: 5;
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+            background-color: #fafafa;
+            color: #333;
+            border-bottom: solid 2px #aaa;
+        }
+        .itemm ul li a:hover{
+            background-color: #9cf;
+            width: 200%;
+            margin-bottom: 10px;
+            border: 1px solid #e8e8e8;
+        }
+        .itemm input:checked ~ ul{
+            height: auto;
+            max-height: 200px;
+            transform: all;
+        }
+
+    </style>
+
+
+     <style>
+    #scrollUp img{
+        width: 40px;
+     }
+#scrollUp
+{
+position: fixed;
+top: 480px;
+width: 40px;
+bottom : 10px;
+right: -100px;
+opacity: 0.5;
+}
+</style>
+ 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+ 
+<script>
+jQuery(function(){
+$(function () {
+$(window).scroll(function () {
+if ($(this).scrollTop() > 200 ) { 
+$('#scrollUp').css('right','10px');
+} else { 
+$('#scrollUp').removeAttr( 'style' );
+}
+ 
+});
+});
+});
+</script>
+
+<section class="row header-breadcrumb">
+    <div class="container">
+            <div class="row m0 page-cover">
+                <h2 class="page-cover-tittle">Realisations</h2>
+            <ol class="breadcrumb">
+                <li><a href="{{ path('homepage') }}">Home</a></li>
+                <li class="active">Realisations</li>
+            </ol>
+            </div>
+        </div>
+</section> 
+
+<section class="row check-project sectpad">
+    <div class="container">
+        <div class="row m0 section_header color">
+            <h2>nos Realisations</h2>
+        </div>        
+    </div>
+</section>
+
+<section class="row latest_projects sectpad projects-3">
+    <div class="container">
+        <div class="row m0 filter_row projects-menu">
+            <ul class="nav project_filter" id="project_filter2">
+                <li class="active" data-filter="*">tous</li>
+
+                {{ render(controller('BriceMesMenusBundle:Categorie:gethome' )) }}
+            </ul>
+        </div>
+        
+        <div class="projects3 row m0" id="projects"> 
+            <div class="grid-sizer"></div>
+            {% for real in realisations %} 
+            <div class="project project-listing project-item {{ real.categorie.id }}">
+                <div class="projects-img col-md-7 col-lg-8" >
+                    <div class="projects-img-hover">
+                        {% media real.image, 'big' with {'style': 'width:770px; height:327px'} %}
+                    </div>
+                    <a href="projects-details.html" class="projects-button">View details</a>
+                </div>                
+                <div class="projects-content">
+                    <a href="projects-details.html"><h3>{{real.nom}}</h3></a>
+                    <h4>{{real.nom}}</h4> 
+                    <p>{{real.Description}}</p>
+                </div>
+            </div>
+            {% endfor  %}
+        </div>
+         
+    </div>
+</section>
+
+
+{% endblock %}
+

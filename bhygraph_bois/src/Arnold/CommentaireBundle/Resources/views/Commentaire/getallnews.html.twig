@@ -1,0 +1,15 @@
+{% for com in com %}
+<div class="row about-post-author">
+    <div class="media author-bio">
+            <div class="media-left">
+               <img src="{{ asset('assets/images/blogs/coments1.jpg') }}" alt="" class="img-responsive">
+               {# {% media com.image, 'big' with {'style': 'width:100px; height:115px'} %}  #}
+            </div>
+        <div class="media-body media-middle">
+            <h4><a href="#">{{com.auteur}}</a></h4>
+            <p>{{com.message}} </p>
+           <footer><center><a href="#">{{com.datepublication | date('F')}} {{com.datepublication | date('d')}} {{com.datepublication | date('y')}}</a></center></footer>
+         </div>
+     </div>
+</div> 
+{% endfor %}  

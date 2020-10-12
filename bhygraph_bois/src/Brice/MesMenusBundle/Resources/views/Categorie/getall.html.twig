@@ -1,0 +1,9 @@
+{% for cate in Categorie %}
+    <div class="itemm">
+            <input type="checkbox"  id="{{cate.id}}">
+            <label for="{{cate.id}}">{{cate.titre}}</label>
+            <ul class="nav nav-tabs" role="tablist">
+                {{ render(controller('ArnoldRealisationBundle:Realisation:getcategorie', {'id': cate.id})) }}
+            </ul>
+        </div>
+ {% endfor %}
